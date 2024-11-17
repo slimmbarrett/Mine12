@@ -1,64 +1,109 @@
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1c2130;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #1c2130;
-    color: #fff;
 }
 
-#game-container {
+.game-container {
     text-align: center;
-    width: 90%;
-    max-width: 400px;
-    background: #2c313c;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
 }
 
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.game-header {
     margin-bottom: 20px;
 }
 
-#game-board {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 5px;
+.game-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
 
-.cell {
-    width: 60px;
-    height: 60px;
-    background-color: #3a3f4b;
-    border-radius: 5px;
+.game-controls {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5rem;
-    color: #fff;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #37b0ce;
+    border: none;
+    color: white;
     cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background-color: #01586b;
+}
+
+.grid {
+    display: grid;
+    gap: 5px;
+    background-color: #151C2E;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    background-color: #37b0ce;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    cursor: pointer;
 }
 
 .cell:hover {
-    transform: scale(1.1);
-    background-color: #505760;
+    background-color: #01586b;
 }
 
 .cell.mine {
-    background-color: #ff4d4f;
+    background-color: red;
+    animation: shake 0.3s ease-in-out;
 }
 
 .cell.safe {
-    background-color: #4caf50;
+    background-color: green;
+    animation: fadeIn 0.3s ease-in-out;
 }
 
-.footer {
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.game-footer {
     margin-top: 20px;
+    font-size: 0.8rem;
+    color: #97A3CB;
 }
